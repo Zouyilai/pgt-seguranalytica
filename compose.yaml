@@ -1,11 +1,10 @@
 name: seguranalytics
-
 services:
-	db:
-		image: postgres:latest
-		enviroments:
-			POSTGRES_DB: seguranalytics
-			POSTGRES_USER: seguranalytics
-			POSTGRES_PASSWORD: seguranalytics
-		ports:
-			- 5432:5432
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: seguranalytics
+      POSTGRES_USER: seguranalytics
+      POSTGRES_PASSWORD: seguranalytics
+    ports:
+      - 5432:5432
