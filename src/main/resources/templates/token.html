@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F1F4FF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #ADBCF3;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 20px;
+            padding: 10px 15px;
+            background-color: transparent;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            /* background-color: rgba(255, 255, 255, 0.2); */
+            /* font-weight: bold; */
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+            margin-top: 20px;
+        }
+
+        .sidebar {
+            width: 205px;
+            background-color: #ADBCF3;
+            padding: 18px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            color: #333;
+            height: 100vh;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4C5AB8;
+            color: white;
+        }
+
+        .sidebar .selected {
+            background-color: #4C5AB8;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: white;
+            margin-left: 10px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-details h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .token-container {
+            background-color: #F9FAFB;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2)
+        }
+
+        .token-container h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .token-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .token-container ul li {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #E2E8F0;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .token-container ul li img{
+            width: 16px;
+            height: 16px;
+            margin-right: 20px;
+        }
+
+        .token-container ul li img.selected{
+            padding: 3px;
+            background-color: #d4dae1;
+        }
+
+        
+
+        .token-container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #5A67D8;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .token-container button:hover {
+            background-color: #4C5AB8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="/imgs/logo.png" alt="Logo da Empresa">
+        <div>
+            <a href="../interface/index.html">Home</a>
+            <a href="../interface/token.html">Profile</a>
+            <a href="../interface/sobre_nos.html">About us</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="#">Geral</a>
+            <a href="#" class="selected">Segurança</a>
+            <a href="#">Privacidade</a>
+            <a href="#">Notificações</a>
+            <a href="#">Deletar Perfil</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Profile Section -->
+            <div class="profile-container">
+                <img src="https://via.placeholder.com/80" alt="Foto de Perfil">
+                <div class="profile-details">
+                    <h2>Nome do Usuário</h2>
+                    <p>Data de Adesão: 01/01/2023</p>
+                </div>
+            </div>
+
+            <!-- Token Section -->
+            <div class="token-container">
+                <h3>Tokens Criados</h3>
+                <ul>
+                    <li>AAAAAAAAAAAAAAAA<span><img src="../imgs/copy.png" alt="Copiar Token"></span></li>
+                    <li>AAAAAAAAAAAAAAAB<span><img src="../imgs/copy.png" alt="Copiar Token"></span></li>
+                    <li>AAAAAAAAAAAAAAAC<span><img src="../imgs/copy.png" alt="Copiar Token"></span></li>
+                </ul>
+                <button>Criar Novo Token</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

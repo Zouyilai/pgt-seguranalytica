@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Inicial Fake com Mapas e Gráficos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F1F4FF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #ADBCF3;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 20px;
+            padding: 10px 15px;
+            background-color: transparent;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            /* background-color: rgba(255, 255, 255, 0.2); */
+            /* font-weight: bold; */
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .dashboard {
+            background-color: #ADBCF3;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            text-align: center;
+        }
+
+        .dashboard h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #F9FAFB;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            text-align: center;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Seção de gráficos */
+        .charts {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .chart, .map {
+            background-color: #F9FAFB;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .chart h3, .map h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .chart-placeholder, .map-placeholder {
+            background-color: #E2E8F0;
+            height: 300px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="/imgs/logo.png" alt="Logo da Empresa">
+        <div>
+            <a href="../interface/index.html">Home</a>
+            <a href="../interface/token.html">Profile</a>
+            <a href="../interface/sobre_nos.html">About us</a>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="content">
+        <div class="dashboard">
+            <h2>Dashboard de Dados Fakes</h2>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Usuários Ativos</h3>
+                    <p>1,234</p>
+                </div>
+                <div class="card">
+                    <h3>Projetos Ativos</h3>
+                    <p>567</p>
+                </div>
+                <div class="card">
+                    <h3>Tokens Criados</h3>
+                    <p>8,910</p>
+                </div>
+            </div>
+
+            <!-- Seção de Gráficos e Mapas -->
+            <div class="charts">
+                <div class="chart">
+                    <h3>Gráfico de Crescimento</h3>
+                    <div class="chart-placeholder">Gráfico Placeholder</div>
+                </div>
+                <div class="map">
+                    <h3>Mapa de Distribuição de Usuários</h3>
+                    <div class="map-placeholder">Mapa Placeholder</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
