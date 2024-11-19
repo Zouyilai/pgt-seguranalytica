@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: data
+
+seguranalytica:
+  data:
+    file: ${DATA_FILE:/data/data.xlsx}
+
+springdoc:
+  api-docs:
+    path: /data/api-docs

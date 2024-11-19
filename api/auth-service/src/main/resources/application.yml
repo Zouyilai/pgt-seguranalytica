@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: auth
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    date-format: yyyy-MM-dd HH:mm:ss Z
+    time-zone: GMT-00:00
+  datasource:
+    url: jdbc:postgresql://localhost:5432/seguranalytica
+    username: seguranalytica
+    password: seguranalytica
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    baseline-on-migrate: true
+    schemas: auth
+  jpa:
+    properties:
+      hibernate:
+        default_schema: auth
+
+seguranalytica:
+  jwt:
+    issuer: "seguranalytica"
+    secretKey: ${JWT_SECRET_KEY:1234}
+    duration: 31536000000
+
+springdoc:
+  api-docs:
+    path: /auth/api-docs

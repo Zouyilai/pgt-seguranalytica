@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="body-web">
+    <!-- navbar -->
+    <div class="navbar">
+        <img src="../img/logo.png" alt="Logo da Empresa">
+        <div>
+            <a href="./dash.html">Home</a>
+            <a href="./profile.html">Profile</a>
+            <a href="./sobre_nos.html">About us</a>
+            <a id="logout" href="">LogOut</a>
+        </div>
+    </div>
+
+    <div class="profile-content">
+        <!-- sidebar -->
+        <div class="sidebar">
+            <a href="#">Geral</a>
+            <a href="#" class="selected">Segurança</a>
+            <a href="#">Privacidade</a>
+            <a href="#">Notificações</a>
+            <a href="#">Deletar Perfil</a>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-container">
+                <img src="../img/profile.png" alt="Foto de Perfil">
+                <div class="profile-details">
+                    <h2 id="username"></h2>
+                    <p id="email"></p>
+                </div>
+            </div>
+            <div class="token-container">
+                <h3>Tokens Criados</h3>
+                <ul id="token-list">
+                    <!-- <li>
+                        <span class="copy-content" id="copy-content">AAAAAAAAAAAAAAAA</span>
+                        <div class="button-group">
+                            <button id="copy" class="copy-button"><img src="../img/copy.png" alt="Copiar Token"></button>
+                            <button id="delete" class="copy-button"><img src="../img/delete.png" alt="Copiar Token"></button>
+                        </div>
+                    </li> -->
+                </ul>
+                <button id="create-button">Criar Novo Token</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script type="text/javascript" src="../js/profile.js"></script>
+    <script type="text/javascript" src="../js/logout.js"></script>
+</body>
+</html>

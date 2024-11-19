@@ -1,0 +1,92 @@
+name: seguranalytica
+
+services:
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: seguranalytica
+      POSTGRES_USER: seguranalytica
+      POSTGRES_PASSWORD: seguranalytica
+    volumes:
+      - ./volume/postgresql:/var/lib/postgresql/data
+    # ports:
+    #   - 5432:5432
+
+  account:
+    hostname: account
+    build:
+      context: ./account-service
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db:5432/seguranalytica
+      - spring.datasource.username=seguranalytica
+      - spring.datasource.password=seguranalytica
+    deploy:
+      mode: replicated
+      replicas: 1
+    restart: always
+    depends_on:
+      - db
+
+  auth:
+    hostname: auth
+    build:
+      context: ./auth-service
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db:5432/seguranalytica
+      - spring.datasource.username=seguranalytica
+      - spring.datasource.password=seguranalytica
+      - seguranalytica.jwt.issuer=seguranalytica
+      - seguranalytica.jwt.secretKey=75d72b49be4066c7a2864c3588075be15d017ea6e2fdc3b2fbf70f010725839a
+      - seguranalytica.jwt.duration=31536000000
+    deploy:
+      mode: replicated
+      replicas: 1
+    restart: always
+    depends_on:
+      - account
+
+  data:
+    hostname: data
+    build:
+      context: ./data-service
+    environment:
+      - seguranalytica.data.file=/data/data.xlsx
+    volumes:
+      - ./volume/data:/data
+    deploy:
+      mode: replicated
+      replicas: 1
+    restart: always
+    depends_on:
+      - auth
+      - account
+
+  voucher:
+    hostname: voucher
+    build:
+      context: ./voucher-service
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db:5432/seguranalytica
+      - spring.datasource.username=seguranalytica
+      - spring.datasource.password=seguranalytica
+    deploy:
+      mode: replicated
+      replicas: 1
+    restart: always
+    depends_on:
+      - account
+      - auth
+
+  gateway:
+    hostname: gateway
+    build:
+      context: ./gateway-service
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - account
+      - auth
+      - data
+      - voucher

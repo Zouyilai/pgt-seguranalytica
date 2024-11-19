@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: account
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/seguranalytica
+    username: seguranalytica
+    password: seguranalytica
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    baseline-on-migrate: true
+    schemas: account
+
+  jpa:
+    properties:
+      hibernate:
+        default_schema: account
+
+springdoc:
+  api-docs:
+    path: /account/api-docs
