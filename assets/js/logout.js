@@ -4,15 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!jwtToken) {
         if (!logout) {
-            window.location.href = './';
-        } else {
             window.location.href = './logout.html';
+            localStorage.setItem('logout', 1);
+        } else {
+            window.location.href = './';
         }
     }
 });
 
 document.getElementById('logout').addEventListener('click', function() {
-    localStorage.setItem('logout', 1);
+    localStorage.removeItem('logout');
     localStorage.removeItem('jwtToken');
 });
-

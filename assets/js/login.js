@@ -33,7 +33,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
             const token = result.token;
 
             localStorage.setItem('jwtToken', token);
-            localStorage.removeItem('logout');
+            localStorage.setItem('logout', 1);
 
             window.location.href = './dash.html';
         } else {

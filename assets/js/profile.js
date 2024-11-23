@@ -184,7 +184,7 @@ try {
       const deleteButton = await deleteToken(token, jwtToken);
       const downloadButton = await getData(token);
 
-      buttonGroup.appendChild(downloadButton);
+      //buttonGroup.appendChild(downloadButton);
       buttonGroup.appendChild(copyButton);
       buttonGroup.appendChild(deleteButton);
 
